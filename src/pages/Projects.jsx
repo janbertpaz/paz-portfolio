@@ -1,20 +1,16 @@
-const projects = [
-  { id: 1, title: 'Project One', description: 'A short description of project one.' },
-  { id: 2, title: 'Project Two', description: 'A short description of project two.' },
-  { id: 3, title: 'Project Three', description: 'A short description of project three.' },
-]
+import ProjectCard from '../components/ProjectCard'
+import { projects } from '../data/projects'
 
 function Projects() {
   return (
-    <section>
-      <h1>Projects</h1>
-      {projects.map((p) => (
-        <article key={p.id}>
-          <img src="https://placehold.co/300x180" alt={p.title} />
-          <h3>{p.title}</h3>
-          <p>{p.description}</p>
-        </article>
-      ))}
+    <section className="mx-auto max-w-5xl px-4 py-12">
+      <h1 className="text-3xl font-bold text-slate-900">Projects</h1>
+      <p className="mt-2 text-slate-600">Some of the things I've built.</p>
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((p) => (
+          <ProjectCard key={p.id} {...p} />
+        ))}
+      </div>
     </section>
   )
 }
